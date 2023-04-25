@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<h4> Please search a game </h4>
+
+<div class = "form-group">
+    <input type="text" name= "search" id="search" placeholder="Search...">
+    <select name="games" id="games"></select>
+</div>
+
+<div class "game-info">
+        <img class="img" id= "game-img" src="" alt="">
+    <div class="desc">
+    <h3 id = "title"></h3>
+        <div class="infos">
+            <p id= "players"></p>
+            <p id ="minutes"></p>
+        </div>
+        <p class="text" id="text"></p>
+    </div>
+</div>
+
+{% block javascript %}
+<script>
+
+window.addEventListener('DOMContentLoaded', (event)=> {
+
+    // Zone de recherche et liste déroulante
+    const search = document.querySelector('#search');
+    const select = document.querySelector('#search');
+    const img = document.querySelector('#search');
+    const title = document.querySelector('#search');
+    const p = document.querySelector('#search');
+    const players = document.querySelector('#search');
+    const minutes = document.querySelector('#search');
+    
+})
+
+</script>
+
+{% endblock %}
+
+{% endblock %}
