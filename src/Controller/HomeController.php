@@ -13,15 +13,19 @@ class HomeController extends AbstractController
     #[Route('/home', name: 'app_home')]
     public function index(): Response
     {
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/index.html.twig', []);
+    }
+
+    #[Route('/games', name: 'app_games', methods: ['POST'])]
+    public function displayGames(BGAHttpClient $bgg, Request $request) {
+        $search = $request->request->get('searchValue');
+        return new Response($bgg->getGames($search));
     }
 
     #[Route('/game', name: 'app_game', methods: ['POST'])]
-    public function displayGame(BGAHttpClient $bga, Request $request)
-    {
+    public function displayGame(BGAHttpClient $bgg, Request $request) {
         $search = $request->request->get('gameId');
-        return new Response($bga->getGame($search));
+        return new Response($bgg->getGame($search));
     }
+
 }
